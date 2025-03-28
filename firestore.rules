@@ -1,0 +1,8 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read and write for all users (unsafe for production)
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
